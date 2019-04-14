@@ -1,0 +1,6 @@
+math_parser:
+  js:
+    js/app/dist/main.js: { preprocess: 0, minified: true }
+  css:
+    component:
+      css/math_parser.css: {}

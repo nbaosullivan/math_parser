@@ -1,0 +1,9 @@
+name: Math Parser Example
+description: Example content type and view
+package: Field types
+
+type: module
+core: 8.x
+
+dependencies:
+  - math_parser

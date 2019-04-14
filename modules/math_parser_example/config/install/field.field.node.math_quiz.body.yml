@@ -1,0 +1,22 @@
+uuid: bf9ba034-50c3-4ff0-9b7b-5d2007265d13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.math_quiz
+  module:
+    - text
+id: node.math_quiz.body
+field_name: body
+entity_type: node
+bundle: math_quiz
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

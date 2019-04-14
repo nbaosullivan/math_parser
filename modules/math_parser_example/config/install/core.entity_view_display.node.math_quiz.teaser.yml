@@ -1,0 +1,30 @@
+uuid: 90ea61dd-7649-46ea-8960-5dc8f1212aef
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.math_quiz.body
+    - node.type.math_quiz
+  module:
+    - text
+    - user
+id: node.math_quiz.teaser
+targetEntityType: node
+bundle: math_quiz
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ *
+ * @return array
+ */
+function math_parser_theme($existing, $type, $theme, $path) {
+  $template_params = ['formula' => NULL, 'result' => NULL, 'delta' => NULL];
+  return [
+    'formula_formatter_react' => [
+      'variables' => $template_params,
+      'template' => 'formula-formatter-react',
+    ],
+    'formula_formatter_twig' => [
+      'variables' => $template_params,
+      'template' => 'formula-formatter-twig',
+    ],
+    'field__math_parser' => [
+      'template' => 'field/field--math-parser',
+      'base hook' => 'field',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * @param $variables
+ */
+function math_parser_preprocess_field__math_parser(&$variables) {
+
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    $nid = $node->id();
+
+    if (isset($variables['items'])) {
+      $attributes = $variables['items'][0]['attributes'];
+      $attributes->setAttribute('id', 'math_parser_list_' . $nid . '_' . $variables['field_name']);
+      $attributes->setAttribute('data-nid', $nid);
+      $attributes->addClass('math-parser-list');
+      $variables['items'][0]['attributes'] = $attributes;
+    }
+  }
+}

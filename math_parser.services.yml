@@ -1,0 +1,3 @@
+services:
+  math_parser.math_parser:
+    class: Drupal\math_parser\Services\MathParser

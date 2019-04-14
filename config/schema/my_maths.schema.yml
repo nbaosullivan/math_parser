@@ -1,0 +1,7 @@
+field.formatter.settings.math_parser:
+  type: mapping
+  label: 'Math Parser display widget style'
+  mapping:
+    widget_type:
+      type: string
+      label: 'Widget type'

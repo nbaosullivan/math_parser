@@ -1,0 +1,38 @@
+uuid: 26a406fe-f1b6-418e-8d6e-d40722b8d673
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.math_quiz.body
+    - field.field.node.math_quiz.field_questions
+    - node.type.math_quiz
+  module:
+    - math_parser
+    - text
+    - user
+id: node.math_quiz.default
+targetEntityType: node
+bundle: math_quiz
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_questions:
+    weight: 2
+    label: hidden
+    settings:
+      widget_type: react
+    third_party_settings: {  }
+    type: math_parser
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

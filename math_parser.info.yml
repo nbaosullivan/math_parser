@@ -1,0 +1,11 @@
+name: Math Parser
+description: Mathematical String Parser field type, service and configurable formatter.
+package: Field types
+
+type: module
+core: 8.x
+
+dependencies:
+  - field
+  - graphql
+  - graphql_views

@@ -1,0 +1,21 @@
+uuid: 5bdfd3dc-25ab-440f-8754-5b07ef95b5b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_questions
+    - node.type.math_quiz
+  module:
+    - math_parser
+id: node.math_quiz.field_questions
+field_name: field_questions
+entity_type: node
+bundle: math_quiz
+label: Questions
+description: 'Mathematical formula string e.g. 10 + 20 - 30 + 15 * 5'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: math_parser
