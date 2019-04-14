@@ -4,31 +4,31 @@ This Drupal 8 module provides a mathematical string parser service, field type, 
 ## Getting started
 
 ### Prerequisites
-- Working Drupal 8 instance
-- Install module dependencies.
- `composer require drupal/graphql_views` and install within Drupal (will also install graphql).
+You will need a working Drupal 8 instance with the module dependencies installed.
+
+`composer require drupal/graphql_views` and then install within Drupal (will also install graphql).
 
 **Module Dependencies**
-- [graphql](https://www.drupal.org/project/graphql) 
-- [graphql_views](https://www.drupal.org/project/graphql_views)
+- [GraphQL Drupal Module](https://www.drupal.org/project/graphql) 
+- [GraphQL Views Drupal Module](https://www.drupal.org/project/graphql_views)
 ### Installing
  
 1. Include this module in the `/modules` folder of a Drupal 8 instance.
-2. Navigate into `js/app` and run `npm install` then `npm run build`
-3. Navigate to `/admin/modules` and, under the Field Types category, Install `Math Parser` and `Math Parser Example`. 
-This will create an example content type called `Maths quiz` and a view called `Math Parser Example`.
+2. Navigate into `js/app` and run `npm install` and then `npm run build`.
+3. Navigate to `/admin/modules` and install `Math Parser` and `Math Parser Example`, found under the Field Types category. 
+This will create an example content type called `Maths quiz` and a view called `Math Parser Example` (used for GraphQL request from the React app).
 4. Create a piece of Maths quiz content, demonstrated below. 
 
 ![](https://media.giphy.com/media/Swmfqn0IZPuXggmfX3/giphy.gif)
 
-## Overiew
+## Overview
 ### Field formatter widget options
 
 - `React` displays the formulas as an interactive React quiz. This only work when using the Math Parser field type.
 - `Twig` which will render without loading the React javascript and display it in the following format `{{formula}} = {{result}}`. This formatter widget option can also work on Text (plain) field types. 
 - `Answer only` which will render just the answer. This is used within the GraphQL view to return only the answer when checking if the user input is correct. This formatter widget option can also work on Text (plain) field types.
 
-By default, the field formatter will display the formulas in an interactive quiz. Enter a number and hit enter.
+By default, the field formatter will display the formulas in an interactive quiz as seen below. Enter your answer and hit enter.
 
 ![](https://media.giphy.com/media/Yr5QXsgWAW98U8zUAE/giphy.gif)
 
