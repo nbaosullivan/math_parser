@@ -30,7 +30,7 @@ This will create an example content type called `Maths quiz` and a view called `
 
 By default, the field formatter will display the formulas in an interactive quiz as seen below. Put in your answer and hit the enter key.
 
-![](https://media.giphy.com/media/Yr5QXsgWAW98U8zUAE/giphy.gif)
+![](http://g.recordit.co/eq5QPdqEXe.gif)
 
 ### Drupal Service
 
