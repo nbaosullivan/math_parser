@@ -10,5 +10,5 @@ module.exports = {
             }
         ]
     },
-    watch: true
+    stats: 'errors-only'
 };

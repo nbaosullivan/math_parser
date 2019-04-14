@@ -1,18 +1,28 @@
-#Math Parser Drupal 8 Module
+# Math Parser Drupal 8 Module
 This Drupal 8 module provides a mathematical string parser service, field type, and configurable field formatter.
 
-##Installation and usage
-1. Install module dependencies using  `composer require drupal/graphql_views` (will also install graphql) 
-2. Include this module in the `/modules` folder of a Drupal 8 instance.
-3. Navigate into `js/app` and run `npm run build`
-4. Navigate to `/admin/modules` and, under the Field Types category, Enable `Math Parser` and `Math Parser Example`. 
+## Getting started
+
+### Prerequisites
+- Working Drupal 8 instance
+- Install module dependencies.
+ `composer require drupal/graphql_views` and install within Drupal (will also install graphql).
+
+**Module Dependencies**
+- [graphql](https://www.drupal.org/project/graphql) 
+- [graphql_views](https://www.drupal.org/project/graphql_views)
+### Installing
+ 
+1. Include this module in the `/modules` folder of a Drupal 8 instance.
+2. Navigate into `js/app` and run `npm install` then `npm run build`
+3. Navigate to `/admin/modules` and, under the Field Types category, Install `Math Parser` and `Math Parser Example`. 
 This will create an example content type called `Maths quiz` and a view called `Math Parser Example`.
-5. Create a piece of Maths quiz content, demonstrated below. 
+4. Create a piece of Maths quiz content, demonstrated below. 
 
-![](https://media.giphy.com/media/KbS5DjUHppWG56RthF/giphy.gif)
+![](https://media.giphy.com/media/Swmfqn0IZPuXggmfX3/giphy.gif)
 
-##Overiew
-**Field formatter widget options**
+## Overiew
+### Field formatter widget options
 
 - `React` displays the formulas as an interactive React quiz. This only work when using the Math Parser field type.
 - `Twig` which will render without loading the React javascript and display it in the following format `{{formula}} = {{result}}`. This formatter widget option can also work on Text (plain) field types. 
@@ -22,7 +32,7 @@ By default, the field formatter will display the formulas in an interactive quiz
 
 ![](https://media.giphy.com/media/Yr5QXsgWAW98U8zUAE/giphy.gif)
 
-**Drupal Service**
+### Drupal Service
 
 This module provides the MathParser service, found in `src/Services/MathParser.php`.
 You can access this like any other Drupal service, see the example below.
@@ -33,13 +43,13 @@ You can access this like any other Drupal service, see the example below.
       $parsed_value = $math_parser->calculate($string);
 ```
 
-**React**
+### React
 When using the `React` widget option for the field formatter, a progressively decoupled React app using webpack is included within the Math Parser field template. 
 This uses GraphQL to retrieve the formula answer when a user enters there answer, and after three attempts or a correct answer, the user is give the next formula. 
 
 *Please note that currently the React requests using GraphQL won't work without the `Math Parser Example` module enabled as the GraphQL query depends on a specific view that references fields that are also generated upon installation of the example module.* 
  
-##Tests
+## Running the tests
 You may need to run `composer run-script drupal-phpunit-upgrade` if PHPUnit testing framework is out of date.
 
 Module unit tests can be found in `tests/src/Unit` and run using PHPUnit.
@@ -62,6 +72,6 @@ The example view provided with this module only work for field_math_questions
 Make sure dev composer dependecies are installed `composer install`
 In project root run `./vendor/bin/phpunit`
 
-##Module Dependencies
+## Module Dependencies
 - [graphql](https://www.drupal.org/project/graphql) 
 - [graphql_views](https://www.drupal.org/project/graphql_views)
