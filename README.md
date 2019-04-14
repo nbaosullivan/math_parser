@@ -6,7 +6,7 @@ This Drupal 8 module provides a mathematical string parser service, field type, 
 ### Prerequisites
 You will need a working Drupal 8 instance with the module dependencies installed.
 
-`composer require drupal/graphql_views` and then install within Drupal (will also install graphql).
+`composer require drupal/graphql_views` and then install within Drupal. This will also install GraphQL.
 
 **Module Dependencies**
 - [GraphQL Drupal Module](https://www.drupal.org/project/graphql) 
@@ -14,7 +14,7 @@ You will need a working Drupal 8 instance with the module dependencies installed
 ### Installing
  
 1. Include this module in the `/modules` folder of a Drupal 8 instance.
-2. Navigate into `js/app` and run `npm install` and then `npm run build`.
+2. Navigate to `js/app` and run `npm install` and then `npm run build`.
 3. Navigate to `/admin/modules` and install `Math Parser` and `Math Parser Example`, found under the Field Types category. 
 This will create an example content type called `Maths quiz` and a view called `Math Parser Example` (used for GraphQL request from the React app).
 4. Create a piece of Maths quiz content, demonstrated below. 
@@ -24,18 +24,18 @@ This will create an example content type called `Maths quiz` and a view called `
 ## Overview
 ### Field formatter widget options
 
-- `React` displays the formulas as an interactive React quiz. This only work when using the Math Parser field type.
-- `Twig` which will render without loading the React javascript and display it in the following format `{{formula}} = {{result}}`. This formatter widget option can also work on Text (plain) field types. 
-- `Answer only` which will render just the answer. This is used within the GraphQL view to return only the answer when checking if the user input is correct. This formatter widget option can also work on Text (plain) field types.
+- `React` displays the formulas as an interactive React quiz. This only works when using the Math Parser field type.
+- `Twig` will render the field without loading the React javascript and display it in the following format `{{formula}} = {{result}}`. This formatter widget option can also work on Text (plain) field types. 
+- `Answer only` will render just the answer. This is used within the GraphQL view to return only the answer when checking if the user input is correct. This formatter widget option can also work on Text (plain) field types.
 
-By default, the field formatter will display the formulas in an interactive quiz as seen below. Enter your answer and hit enter.
+By default, the field formatter will display the formulas in an interactive quiz as seen below. Put in your answer and hit the enter key.
 
 ![](https://media.giphy.com/media/Yr5QXsgWAW98U8zUAE/giphy.gif)
 
 ### Drupal Service
 
 This module provides the MathParser service, found in `src/Services/MathParser.php`.
-You can access this like any other Drupal service, see the example below.
+You can access this like any other Drupal service - see the example below.
 
 ```
       $string = '2+2';  
@@ -44,8 +44,8 @@ You can access this like any other Drupal service, see the example below.
 ```
 
 ### React
-When using the `React` widget option for the field formatter, a progressively decoupled React app using webpack is included within the Math Parser field template. 
-This uses GraphQL to retrieve the formula answer when a user enters there answer, and after three attempts or a correct answer, the user is give the next formula. 
+When using the `React` widget option for the field formatter, a progressively decoupled React app using Webpack is included within the Math Parser field template. 
+This uses GraphQL to retrieve the formula solution when a user enters their answer, and after three attempts or a correct answer, the user is given the next formula. 
 
 *Please note that currently the React requests using GraphQL won't work without the `Math Parser Example` module enabled as the GraphQL query depends on a specific view that references fields that are also generated upon installation of the example module.* 
  
@@ -65,13 +65,3 @@ Module unit tests can be found in `tests/src/Unit` and run using PHPUnit.
   </testsuites>
 </phpunit>
 ```
-
-Please note: the react field formatter is dependent on the view math_parser_answer provided with this module
-select Widget Type Answer only and uncheck Display all value in the same row
-The example view provided with this module only work for field_math_questions
-Make sure dev composer dependecies are installed `composer install`
-In project root run `./vendor/bin/phpunit`
-
-## Module Dependencies
-- [graphql](https://www.drupal.org/project/graphql) 
-- [graphql_views](https://www.drupal.org/project/graphql_views)
